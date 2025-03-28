@@ -19,7 +19,6 @@
     "@tailwindcss/vite": "^4.0.17",
     "bcrypt": "^5.1.1",
     "eslint": "^9.0.0",
-    "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "lucide-vue-next": "^0.484.0",
     "nuxt": "^3.16.1",

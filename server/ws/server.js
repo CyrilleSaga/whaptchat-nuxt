@@ -1,12 +1,8 @@
 import {WebSocketServer} from 'ws'
 import jwt from "jsonwebtoken";
-import express from 'express';
-import http from 'http';
 import {prisma} from "../prisma.js";
 
-const app = express();
-const server = http.createServer(app);
-const wss = new WebSocketServer({server})
+const wss = new WebSocketServer({port: 8080});
 
 // Save logged-in users
 const clients = new Map()
@@ -73,6 +69,4 @@ wss.on('connection', async (ws, request) => {
 
 })
 
-server.listen(8080, () => {
-    console.log("WebSocket server running on ws://localhost:8080");
-})
+console.log("WebSocket server running on ws://localhost:8080");
