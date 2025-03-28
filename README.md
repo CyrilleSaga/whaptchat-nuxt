@@ -14,8 +14,8 @@ comprend une page de connexion stylisée et une fonctionnalité de chat en temps
 
 1. Clonez le dépôt :
     ```bash
-    git clone <URL_DU_DEPOT>
-    cd <NOM_DU_DEPOT>
+    git clone https://github.com/CyrilleSaga/whaptchat-nuxt.git whaptchat
+    cd whaptchat
     ```
 
 2. Installez les dépendances :
