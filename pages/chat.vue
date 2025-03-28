@@ -14,18 +14,18 @@ import {
 
 // State
 const message = ref('');
-const messages = ref([]);
+const messages = ref(<any>[]);
 const isConnected = ref(false);
 const isDark = ref(true);
 const showConnectionToast = ref(false);
-const messagesContainer = ref(null);
-const currentUser = ref(localStorage.getItem('username') ?? '');
-let socket;
+const messagesContainer = ref<HTMLElement>();
+const currentUser = ref('');
+let socket: WebSocket;
 let reconnectAttempts = 0;
 const maxReconnectAttempts = 5;
 
 // Computed
-const connectionStatus = computed(() => {
+const connectionStatus = computed(function () {
   return isConnected.value ? 'Connecté' : 'Déconnecté';
 });
 
@@ -109,14 +109,14 @@ const scrollToBottom = () => {
   });
 };
 
-const formatTime = (timestamp) => {
+const formatTime = (timestamp: string) => {
   if (!timestamp) return '';
 
   const date = new Date(timestamp);
   return date.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
 };
 
-const isCurrentUser = (msg) => {
+const isCurrentUser = (msg: any) => {
   return msg.username === currentUser.value;
 };
 
@@ -133,6 +133,8 @@ const toggleDarkMode = () => {
 
 // Lifecycle hooks
 onMounted(() => {
+  currentUser.value = localStorage.getItem('username') ?? ''
+
   // Charger la préférence de thème
   const savedDarkMode = localStorage.getItem('darkMode');
   if (savedDarkMode === 'true') {
