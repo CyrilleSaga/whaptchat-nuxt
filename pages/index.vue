@@ -91,9 +91,9 @@ const handleLogin = async () => {
                     id="username"
                     v-model="username"
                     class="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                    placeholder="you@example.com"
+                    placeholder="Jean"
                     required
-                    type="username"
+                    type="text"
                 />
               </div>
             </div>

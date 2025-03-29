@@ -76,17 +76,18 @@ const handleRegister = async () => {
           <form @submit.prevent="handleRegister">
             <!-- Email Input -->
             <div class="mb-4">
-              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                     for="username">Username</label>
+              <label
+                  class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                  for="username">Username</label>
               <div class="relative">
                 <mail-icon class="h-5 w-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"/>
                 <input
                     id="username"
                     v-model="username"
                     class="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                    placeholder="you@example.com"
+                    placeholder="Jean"
                     required
-                    type="username"
+                    type="text"
                 />
               </div>
             </div>
