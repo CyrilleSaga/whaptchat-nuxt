@@ -95,10 +95,12 @@ const handleRegister = async () => {
             <!-- Password Input -->
             <div class="mb-6">
               <div class="flex items-center justify-between mb-1">
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300"
-                       for="password">Password</label>
-                <a class="text-sm text-purple-600 hover:text-purple-500 dark:text-purple-400" href="#">Forgot
-                  password?</a>
+                <label
+                    class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    for="password"
+                >
+                  Password
+                </label>
               </div>
               <div class="relative">
                 <lock-icon class="h-5 w-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"/>
