@@ -39,7 +39,7 @@ const connectWebSocket = async () => {
   }
 
   try {
-    socket = new WebSocket(`ws://localhost:8080?token=${token}`);
+    socket = new WebSocket(`wss://whaptchat-ws.onrender.com?token=${token}`);
 
     socket.onopen = () => {
       isConnected.value = true;
