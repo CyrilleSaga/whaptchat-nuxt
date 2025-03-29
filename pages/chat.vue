@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import {computed, nextTick, onMounted, ref, watch} from 'vue';
 import {
+  LogOutIcon,
   MessageCircle as MessageCircleIcon,
   MessageSquare as MessageSquareIcon,
   Moon as MoonIcon,
@@ -23,6 +24,8 @@ const currentUser = ref('');
 let socket: WebSocket;
 let reconnectAttempts = 0;
 const maxReconnectAttempts = 5;
+
+const router = useRouter()
 
 // Computed
 const connectionStatus = computed(function () {
@@ -59,7 +62,7 @@ const connectWebSocket = async () => {
       if (Array.isArray(data)) {
         messages.value = data;
       }
-      
+
       // Si c'est un nouveau message
       else {
         messages.value.push(data);
@@ -90,6 +93,13 @@ const connectWebSocket = async () => {
     console.error("Failed to connect:", error);
     isConnected.value = false;
   }
+};
+
+// Logout
+const logout = () => {
+  localStorage.removeItem('token');
+  localStorage.removeItem('username');
+  router.push('/')
 };
 
 const sendMessage = () => {
@@ -171,6 +181,9 @@ watch(messages, () => {
                   @click="toggleDarkMode">
             <sun-icon v-if="isDark" class="h-5 w-5 text-gray-400"/>
             <moon-icon v-else class="h-5 w-5 text-gray-600"/>
+          </button>
+          <button>
+            <LogOutIcon class="h-5 w-5 text-gray-400" @click="logout"/>
           </button>
         </div>
       </div>
