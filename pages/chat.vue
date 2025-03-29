@@ -58,10 +58,8 @@ const connectWebSocket = async () => {
       // Si c'est un message initial contenant la liste des messages
       if (Array.isArray(data)) {
         messages.value = data;
-        // Extraire le nom d'utilisateur à partir du token (simulation)
-        // Dans un cas réel, vous pourriez décoder le JWT ou obtenir cette info du serveur
-        currentUser.value = 'Vous'; // À remplacer par la logique réelle
       }
+      
       // Si c'est un nouveau message
       else {
         messages.value.push(data);
