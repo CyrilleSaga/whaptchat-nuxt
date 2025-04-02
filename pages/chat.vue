@@ -26,6 +26,7 @@ let reconnectAttempts = 0;
 const maxReconnectAttempts = 5;
 
 const router = useRouter()
+const config = useRuntimeConfig()
 
 // Computed
 const connectionStatus = computed(function () {
@@ -42,7 +43,7 @@ const connectWebSocket = async () => {
   }
 
   try {
-    socket = new WebSocket(`wss://whaptchat-ws.onrender.com?token=${token}`);
+    socket = new WebSocket(`${config.public.websocketUrl}?token=${token}`);
 
     socket.onopen = () => {
       isConnected.value = true;

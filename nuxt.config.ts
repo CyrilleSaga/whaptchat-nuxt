@@ -11,6 +11,9 @@ export default defineNuxtConfig({
     ],
 
     runtimeConfig: {
-        jwtSecret: ''
+        jwtSecret: '',
+        public: {
+            websocketUrl: ''
+        }
     }
 })
